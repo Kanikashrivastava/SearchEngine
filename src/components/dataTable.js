@@ -9,7 +9,14 @@ internals.filterWordsWhichContainKeyword = (keyword, array) => {
 
 internals.sortByKeywordPosition = (keyword, array) => { 
     return array.slice().sort((firstElem, secondElem) => {
-        return firstElem.word.indexOf(keyword) -  secondElem.word.indexOf(keyword)
+        return (firstElem.word.indexOf(keyword) -  secondElem.word.indexOf(keyword)) +
+                (secondElem.number -  firstElem.number)
+    })
+}
+
+internals.sortByOccurenceOfTheWords = (keyword, array) => { 
+    return array.slice().sort((firstElem, secondElem) => {
+        return secondElem.number -  firstElem.number
     })
 }
 
@@ -31,8 +38,9 @@ class DataTable extends Component {
     prioritizeSearch(){
         const {searchInput} = this.props;
         const {fileData} = this.state;
-        let filterData = internals.filterWordsWhichContainKeyword(searchInput,fileData)
-        return internals.sortByKeywordPosition(searchInput, filterData)
+        let filterData = internals.filterWordsWhichContainKeyword(searchInput,fileData);
+        return internals.sortByKeywordPosition(searchInput, filterData);
+
     }
 
     render() {
