@@ -1,14 +1,15 @@
-import React, {Component} from "react";
+import React, {Component} from "react"; 
+
+import DataTable from './dataTable';
 
 class SearchBar extends Component {
-    state = {
-        searchInput: ''
+    constructor(){
+        super();
+        this.state = {
+            searchInput: ''
+        }
     }
-
-    tsvToJsonCovertHandler = () => {
-        
-    }
-
+    
 
 
     searchBarInputHandler = (e) => {
@@ -18,12 +19,14 @@ class SearchBar extends Component {
     }
 
     render(){
+        // console.log(this.state.searchInput, 'parent');
         return (
             <>
                 <input type='text' placeholder="Search here..." 
                 value={this.state.searchInput} 
                 onChange={this.searchBarInputHandler}
                 />
+                <DataTable searchInput={this.state.searchInput}/>
             </>
         )
     }
