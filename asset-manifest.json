@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/SearchEngine/static/css/main.2cce8147.chunk.css",
+    "main.js": "/SearchEngine/static/js/main.528b11f3.chunk.js",
+    "main.js.map": "/SearchEngine/static/js/main.528b11f3.chunk.js.map",
+    "runtime~main.js": "/SearchEngine/static/js/runtime~main.9b8b1c53.js",
+    "runtime~main.js.map": "/SearchEngine/static/js/runtime~main.9b8b1c53.js.map",
+    "static/js/2.6c0fc861.chunk.js": "/SearchEngine/static/js/2.6c0fc861.chunk.js",
+    "static/js/2.6c0fc861.chunk.js.map": "/SearchEngine/static/js/2.6c0fc861.chunk.js.map",
+    "index.html": "/SearchEngine/index.html",
+    "precache-manifest.5f5b436551c8133ec904129732f149a1.js": "/SearchEngine/precache-manifest.5f5b436551c8133ec904129732f149a1.js",
+    "service-worker.js": "/SearchEngine/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/SearchEngine/static/css/main.2cce8147.chunk.css.map",
+    "static/media/word_search.tsv": "/SearchEngine/static/media/word_search.1710e1aa.tsv"
+  }
+}
