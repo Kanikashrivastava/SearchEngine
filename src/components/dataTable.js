@@ -1,55 +1,16 @@
 import React, {Component} from 'react';
-import { getDataSetAsJsonFromTSV } from '../tsvToJson';
-
-const internals = {}
-
-internals.filterWordsWhichContainKeyword = (keyword, array) => {
-    return array.slice().filter((element) => element.word.toLowerCase().indexOf(keyword.toLowerCase()) > -1)
-};
-
-internals.sortByKeywordPosition = (keyword, array) => { 
-    return array.slice().sort((firstElem, secondElem) => {
-        return (firstElem.word.indexOf(keyword) -  secondElem.word.indexOf(keyword)) +
-                (secondElem.number -  firstElem.number)
-    })
-}
-
-internals.sortByOccurenceOfTheWords = (keyword, array) => { 
-    return array.slice().sort((firstElem, secondElem) => {
-        return secondElem.number -  firstElem.number
-    })
-}
 
 class DataTable extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            fileData : []
-        }
-    }
-
-    componentDidMount(){
-        getDataSetAsJsonFromTSV().then((dataset) => {
-            this.setState({
-                fileData : dataset
-            })
-        })
-    }
-    prioritizeSearch(){
-        const {searchInput} = this.props;
-        const {fileData} = this.state;
-        let filterData = internals.filterWordsWhichContainKeyword(searchInput,fileData);
-        return internals.sortByKeywordPosition(searchInput, filterData);
-
-    }
+  
 
     render() {
-        let filterData  =  this.prioritizeSearch();
+        let {filterData}  =  this.props;
+        console.log(this.props);
         
         return (
             <>
                 <ul>
-                    {filterData && filterData.slice(0,25).map(value => (
+                    {filterData && filterData.map(value => (
                         <li key={value.number}>{value.word}</li>
                     ))}
                 </ul>

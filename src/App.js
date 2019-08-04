@@ -1,14 +1,31 @@
-import React from 'react';
+import React,{Component} from 'react';
 import './App.css'; 
+import { getDataSetAsJsonFromTSV } from './tsvToJson';
+import SearchBar from './components/SearchBar';
 
-import SearchBar from './components/search-bar'
+class App extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      fileData: []
+    }
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <SearchBar/>
-    </div>
-  );
+   componentDidMount(){
+        getDataSetAsJsonFromTSV().then((dataset) => {
+            this.setState({
+                fileData : dataset
+            })
+        })
+    }
+
+  render() {
+    return (
+      <div className="App">
+        <SearchBar fileData={this.state.fileData}/>
+      </div>
+    )
+  }
 }
 
 export default App;
